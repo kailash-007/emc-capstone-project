@@ -57,7 +57,7 @@ Copy code
 ## 🛠 Installation & Setup Guide
 
 ### 1️⃣ Clone the Repository
-```bash
+bash
 git clone https://github.com/kailash-007/emc-capstone-project.git
 cd emc-capstone-project
 2️⃣ Set Up Locally (Without Docker)
