@@ -39,21 +39,6 @@ It includes:
 
 <img width="439" height="397" alt="image" src="https://github.com/user-attachments/assets/4a04d3a7-d286-470a-b5c5-9ba7b841898f" />
 
-
-emc-capstone-project/
-│
-├── emc-capstone-project-src/
-│ ├── app.py # Main Flask application
-│ ├── models.py # User & notes database operations
-│ ├── database.py # SQLite initialization utilities
-│ ├── templates/ # HTML templates for UI
-│ ├── static/ # CSS / JS files (optional)
-│ └── requirements.txt # Python dependencies
-│
-├── Dockerfile # Docker build configuration
-├── Jenkinsfile # Jenkins CI/CD pipeline
-└── README.md # Project documentation
-
 bash
 Copy code
 
