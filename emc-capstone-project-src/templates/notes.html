@@ -1,1 +1,14 @@
-<h2>Your Notes</h2><form method='post'><textarea name='note'></textarea><br><button>Add Note</button></form>{% for n in notes %}<li>{{n.note}}</li>{% endfor %}
+<h2>Your Notes for {{username}}</h2>
+<form method='post'>
+    <textarea name='note'></textarea><br>
+    <button>Add Note</button>
+</form>
+
+<ul>
+{% for n in notes %}
+    <li>{{n.note}}</li>
+{% endfor %}
+</ul>
+
+<!-- Minimal change: add logout link -->
+<p><a href="/logout">Logout</a></p>
