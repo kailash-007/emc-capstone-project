@@ -1,129 +1,119 @@
-EMC Capstone Project – Notes Management Web App
+# 📘 EMC Capstone Project – Notes Management Web App
 
-A simple, secure, Dockerized Flask application that allows users to register, log in, and manage personal notes.
-The project includes a full CI/CD pipeline using Jenkins that automatically builds, pushes, and deploys the application to an AWS EC2 instance.
+A simple, secure, and Dockerized Flask-based Notes Management Application that allows users to register, log in, and manage personal notes.  
+This project demonstrates end-to-end DevOps + Web Development, including:
 
-🚀 Project Overview
+- Flask backend
+- SQLite data storage
+- Docker containerization
+- Jenkins CI/CD pipeline
+- AWS EC2 deployment
 
-The EMC Capstone Project is a lightweight notes application built for educational and demonstration purposes.
-It showcases:
+## 🚀 Project Overview
 
-Web application development using Flask
+The project is designed for educational and demonstration purposes, showing how to build, containerize, and deploy a real-world web application with full automation.  
+It includes:
 
-Secure password management using Flask-Bcrypt
+- Flask web application with user authentication
+- Secure password hashing using Flask-Bcrypt
+- Deployment-ready Docker image
+- Automated CI/CD pipeline using Jenkins
+- Continuous deployment to an AWS EC2 instance
 
-Data persistence using SQLite
+## 🧰 Tech Stack
 
-Containerized deployment with Docker
+**Backend**
+- Python 3.12
+- Flask (web framework)
+- Flask-Bcrypt (password hashing)
+- SQLite (database)
+- Jinja2 (HTML templates)
 
-Automated CI/CD pipeline using Jenkins
+**DevOps / Deployment**
+- Docker
+- Docker Hub
+- Jenkins (CI/CD)
+- AWS EC2
 
-Cloud deployment using AWS EC2
+## 📁 Repository Structure
 
-🧰 Tech Stack
-Backend
-
-Python 3.12
-
-Flask (web framework)
-
-Flask-Bcrypt (password hashing)
-
-SQLite (database)
-
-Jinja2 (templating)
-
-DevOps & Deployment
-
-Docker (container packaging)
-
-Docker Hub (image registry)
-
-Jenkins (CI/CD pipeline)
-
-AWS EC2 (deployment target)
-
-📁 Repository Structure
 emc-capstone-project/
 │
 ├── emc-capstone-project-src/
-│   ├── app.py             # Main Flask application
-│   ├── models.py          # User & notes data operations
-│   ├── database.py        # SQLite initialization
-│   ├── templates/         # HTML templates (UI)
-│   ├── static/            # CSS / JS (if needed)
-│   └── requirements.txt   # Python dependencies
+│ ├── app.py # Main Flask application
+│ ├── models.py # User & notes database operations
+│ ├── database.py # SQLite initialization utilities
+│ ├── templates/ # HTML templates for UI
+│ ├── static/ # CSS / JS files (optional)
+│ └── requirements.txt # Python dependencies
 │
-├── Dockerfile             # Docker build configuration
-├── Jenkinsfile            # CI/CD pipeline script
-└── README.md              # Project documentation
+├── Dockerfile # Docker build configuration
+├── Jenkinsfile # Jenkins CI/CD pipeline
+└── README.md # Project documentation
 
-📝 Application Features
-🔐 User Authentication
+bash
+Copy code
 
-New users can register an account.
+## 🛠 Installation & Setup Guide
 
-Secure password hashing using Bcrypt.
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/kailash-007/emc-capstone-project.git
+cd emc-capstone-project
+2️⃣ Set Up Locally (Without Docker)
+bash
+Copy code
+cd emc-capstone-project-src
+pip install -r requirements.txt
+python3 app.py
+Open in browser: http://localhost:5000
 
-Session-based login handling.
+3️⃣ Docker Setup (Local or Production)
+Build Docker Image
 
-🗒️ Notes Management
+bash
+Copy code
+docker build -t emc-capstone .
+Run the Container
 
-Users can add new notes.
+bash
+Copy code
+docker run -d -p 5000:5000 --name emc-capstone emc-capstone
+Open in browser: http://localhost:5000
 
-Previously saved notes are listed automatically.
+⚙️ CI/CD Pipeline (Jenkins) Overview
+The CI/CD pipeline automates:
 
-Notes are stored in an SQLite database.
+Pulling the latest code from GitHub
 
-🐳 Containerized Deployment
+Building a new Docker image
 
-Full application runs inside a Docker container.
+Pushing it to Docker Hub
 
-Uses a lightweight python:3.12-slim base image.
+Deploying automatically into AWS EC2
 
-Exposes port 5000 for web access.
+🔄 CI/CD Workflow Summary
+GitHub → Jenkins
+Webhook triggers Jenkins on push.
 
-⚙️ Automated CI/CD Pipeline
+Jenkins Pipeline Stages
+Checkout repository
+Build Docker image
+Login to Docker Hub
+Push image
+Deploy to EC2 via SSH
 
-Jenkins pipeline performs the following:
+Deployment Commands on EC2
 
-Pulls the latest code from GitHub
-
-Builds a new Docker image
-
-Pushes image to Docker Hub
-
-SSH deploys to EC2
-
-Stops old container
-
-Runs updated container automatically
-
-🔄 CI/CD Workflow Overview
-1. GitHub → Jenkins (Webhook)
-
-Whenever you push to GitHub, Jenkins automatically triggers a new build.
-
-2. Jenkins Pipeline Stages
-
-Checkout: pulls the repository
-
-Build: creates Docker image
-
-Login: authenticates to Docker Hub
-
-Push: publishes image to registry
-
-Deploy: connects to EC2 → pulls image → restarts container
-
-3. EC2 Deployment
-
-The EC2 instance runs:
-
-docker stop emc-capstone
-
-docker rm emc-capstone
-
-docker pull <latest image>
-
-docker run -d -p 5000:5000 emc-capstone
+bash
+Copy code
+docker stop emc-capstone || true
+docker rm emc-capstone || true
+docker pull <dockerhub-image>
+docker run -d -p 5000:5000 --name emc-capstone <dockerhub-image>
+🖥️ Manual Deployment on AWS EC2
+bash
+Copy code
+ssh -i your-key.pem ubuntu@<EC2-PUBLIC-IP>
+docker pull <dockerhub-image>
+docker run -d -p 5000:5000 --name emc-capstone <dockerhub-image>
