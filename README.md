@@ -37,6 +37,9 @@ It includes:
 
 ## 📁 Repository Structure
 
+<img width="439" height="397" alt="image" src="https://github.com/user-attachments/assets/4a04d3a7-d286-470a-b5c5-9ba7b841898f" />
+
+
 emc-capstone-project/
 │
 ├── emc-capstone-project-src/
