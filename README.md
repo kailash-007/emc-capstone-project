@@ -57,29 +57,30 @@ Copy code
 ## 🛠 Installation & Setup Guide
 
 ### 1️⃣ Clone the Repository
-bash
+```bash
 git clone https://github.com/kailash-007/emc-capstone-project.git
-cd emc-capstone-project
+cd emc-capstone-project```
 2️⃣ Set Up Locally (Without Docker)
-bash
+```bash
 Copy code
 cd emc-capstone-project-src
 pip install -r requirements.txt
 python3 app.py
-Open in browser: http://localhost:5000
+Open in browser: http://localhost:5000```
 
 3️⃣ Docker Setup (Local or Production)
 Build Docker Image
 
-bash
+```bash
 Copy code
-docker build -t emc-capstone .
+docker build -t emc-capstone.```
+
 Run the Container
 
-bash
+```bash
 Copy code
 docker run -d -p 5000:5000 --name emc-capstone emc-capstone
-Open in browser: http://localhost:5000
+Open in browser: http://localhost:5000``
 
 ⚙️ CI/CD Pipeline (Jenkins) Overview
 The CI/CD pipeline automates:
