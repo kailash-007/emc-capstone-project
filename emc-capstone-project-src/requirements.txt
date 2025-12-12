@@ -1,5 +1,1 @@
 Flask==2.3.3
-flask
-flask-bcrypt
-flask-login
-
